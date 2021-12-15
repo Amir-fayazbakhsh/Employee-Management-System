@@ -5,7 +5,7 @@
 @section('content')
 <?php 
 use Carbon\Carbon;
-$carbon = new Carbon; ?>
+ ?>
 <main class="mt-5 pt-3">
   <div class="container">
       <div class="row">
@@ -39,12 +39,14 @@ $carbon = new Carbon; ?>
                       <tbody>
                         @if($users->count())
                           @foreach($users as $user)
+
                             <tr>
                               <td>{{$user->name}}</td>
                               <td>{{$user->username}}</td>
                               <td>{{$user->phone}}</td>
                               <td>{{$user->email}}</td>
-                              <td>{{$carbon->diffForHumans($user->created_at)}}</td>
+                             <?php $carbon = new Carbon($user->created_at);?>
+                              <td>{{$carbon->diffForHumans();}}</td>
                               <td>
                                 <div class="d-flex">
                                   <form method="POST" action="{{route('admin/delete',$user)}}">

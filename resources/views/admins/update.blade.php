@@ -3,7 +3,6 @@
 
 
 @section('content')
-
 <main class="mt-5 pt-3">
   <div class="container">
       <div class="row">
@@ -20,7 +19,7 @@
         
         <div>
             <h3 class="text-center">Update Admin</h3>
-            <form  action="{{route('update/admin')}}" method="POST">
+            <form  action="{{route('update/admin',$user)}}" method="POST">
                 @csrf
                 <div class="form-group  mt-4">
                     <input type="text" name="name" class="form-control  @error('name') border border-danger @enderror" placeholder="Enter name" value="{{$user->name}}">
@@ -33,7 +32,7 @@
                     @error('username')<div class="text-danger mt-2 text-sm">{{$message}}</div>@enderror
                 </div>
                 <div class="form-group mt-4">
-                    <input type="tel" name="phone" class="form-control  @error('phone') border border-danger @enderror" placeholder="Enter phone" value="{{$user->phone}})" >
+                    <input type="tel" name="phone" class="form-control  @error('phone') border border-danger @enderror" placeholder="Enter phone" value="{{$user->phone}}" >
                     @error('phone')<div class="text-danger mt-2 text-sm">{{$message}}</div>@enderror
                 </div>
                 <div class="form-group mt-4">
@@ -43,7 +42,7 @@
                    
                 
                 <div class="text-center mt-4">
-                    <button type="submit" class="btn btn-primary">Create</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
                 </div>
             </form>
 

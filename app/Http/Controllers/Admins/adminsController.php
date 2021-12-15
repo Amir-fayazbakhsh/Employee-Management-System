@@ -56,20 +56,22 @@ class adminsController extends Controller
     }
 
 
-    public function update(Request $req){
+    public function update(Request $req,$id){
+
         $this->validate($req,[
 
-            'name'=>"required|max:255",
-            'username'=>"required|max:255",
-            'email'=>"required|max:255|unique:users",
+            'name'=>"required|max:255|min:3",
+            'username'=>"required|max:255|min:3",
+            'email' => 'required|email|unique:users,email,'.$id,
             'phone'=>"required|string|min:8|max:11",
 
         ]);
-        $user = new User;
+        $user = User::find($id);
         $user->name = $req->name;
         $user->username = $req->username;
         $user->phone = $req->phone;
         $user->email = $req->email;
         $user->save();
+        return redirect()->route('admins/index');
     }
 }

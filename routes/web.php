@@ -33,7 +33,7 @@ Route::view('/admins-create','admins.create')->middleware('auth');
 Route::delete('/admins/{user}/delete',[adminsController::class,'delete'])->name('admin/delete');
 // Route::post('/admins/{user}/update',[adminsController::class,'update'])->name('admin/update');
 Route::get('/admins/{user}/update',[adminsController::class,'details'])->name('admin/update');
-Route::post('/update/admins',[adminsController::class,'update'])->name('update/admin');
+Route::post('/update/{user}/admins',[adminsController::class,'update'])->name('update/admin');
 
 
 

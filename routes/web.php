@@ -5,7 +5,7 @@ use App\Http\Controllers\Auth\loginController;
 use App\Http\Controllers\Auth\logoutController;
 use App\Http\Controllers\dashbordController;
 use App\Http\Controllers\Admins\adminsController;
-
+use App\Http\Controllers\systemManage\DepartmentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +17,7 @@ use App\Http\Controllers\Admins\adminsController;
 |
 */
 
-Route::get('/',[dashbordController::class,'index'])->name('dashbord');
+Route::get('/',[dashbordController::class,'index']);
 
 Route::get('/login',[loginController::class,'index'])->name('login');
 Route::post('/login',[loginController::class,'login']);
@@ -34,6 +34,12 @@ Route::delete('/admins/{user}/delete',[adminsController::class,'delete'])->name(
 // Route::post('/admins/{user}/update',[adminsController::class,'update'])->name('admin/update');
 Route::get('/admins/{user}/update',[adminsController::class,'details'])->name('admin/update');
 Route::post('/update/{user}/admins',[adminsController::class,'update'])->name('update/admin');
+
+
+
+////departments
+Route::get('/Departments',[DepartmentController::class,'index'])->name('departments/index');
+
 
 
 

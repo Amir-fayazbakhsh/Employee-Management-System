@@ -8,12 +8,12 @@ id="sidebar"
   <nav class="navbar-dark">
     <ul class="navbar-nav">
       <li>
-        <div class="text-muted small fw-bold text-uppercase px-3">
+        <div class="text-muted small fw-bold text-uppercase px-3 mt-2">
           CORE
         </div>
       </li>
       <li>
-        <a href="#" class="nav-link px-3 active">
+        <a href="/" class="nav-link px-3 active">
           <span class="me-2"><i class="bi bi-speedometer2"></i></span>
           <span>Dashboard</span>
         </a>
@@ -21,7 +21,7 @@ id="sidebar"
       <li class="my-4"><hr class="dropdown-divider bg-light" /></li>
       <li>
         <div class="text-muted small fw-bold text-uppercase px-3 mb-3">
-          Interface
+          Employees 
         </div>
       </li>
       <li>
@@ -31,7 +31,7 @@ id="sidebar"
           href="#layouts"
         >
           <span class="me-2"><i class="bi bi-layout-split"></i></span>
-          <span>Layouts</span>
+          <span>System Management</span>
           <span class="ms-auto">
             <span class="right-icon">
               <i class="bi bi-chevron-down"></i>
@@ -41,11 +41,19 @@ id="sidebar"
         <div class="collapse" id="layouts">
           <ul class="navbar-nav ps-3">
             <li>
-              <a href="#" class="nav-link px-3">
+              <a href="{{route('departments/index')}}" class="nav-link px-3">
                 <span class="me-2"
                   ><i class="bi bi-speedometer2"></i
                 ></span>
-                <span>Dashboard</span>
+                <span>Department</span>
+              </a>
+            </li>
+            <li>
+              <a href="/" class="nav-link px-3">
+                <span class="me-2"
+                  ><i class="bi bi-speedometer2"></i
+                ></span>
+                <span>Create Employees</span>
               </a>
             </li>
           </ul>

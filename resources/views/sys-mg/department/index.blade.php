@@ -10,14 +10,14 @@ use Carbon\Carbon;
   <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h4 class="m-2">Admins Management</h4>
+          <h4 class="m-2">Departments Management</h4>
         </div>
       </div>
         <div class="row">
             <div class="col-md-12 mb-3">
               <div class="card">
                 <div class="card-header">
-                  <span><i class="bi bi-table me-2"></i></span> Admins
+                  <span><i class="bi bi-table me-2"></i></span> Departments
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
@@ -30,26 +30,30 @@ use Carbon\Carbon;
                         <tr>
                           <th>Departments</th>
                           <th>Created at</th>
+                          <th>Update at</th>
                           <th>Operation</th>
                         </tr>
                       </thead>
-                      {{-- <tbody>
-                        @if($users->count())
-                          @foreach($users as $user)
+                       <tbody>
+                        @if($data->count())
+                          @foreach($data as $dept)
 
                             <tr>
-                              <td>{{$user->department}}</td>
-                             <?php $carbon = new Carbon($user->created_at);?>
-                              <td>{{$carbon->diffForHumans();}}</td>
-                              <td>
+                              <td>{{$dept->name}}</td>
+                             <?php $carbon = new Carbon($dept->created_at);?>
+                               <td>{{$carbon->diffForHumans(); }}</td>
+                              
+                             <?php $carbon = new Carbon($dept->updated_at);?>
+                              <td>{{$carbon->diffForHumans(); }}</td>
+                                <td>
                                 <div class="d-flex">
-                                  <form method="POST" action="{{route('admin/delete',$user)}}">
+                                  <form method="POST" action="{{route('department/delete',$dept)}}">
                                     @csrf 
                                     @method('DELETE')
                                     <button class="btn text-danger" type="submit"><i class="fa fa-trash" aria-hidden="true"></i></button>
                                   </form>                                
                                   
-                                    <button class="btn text-primary" type="submit"><a href="{{route('admin/update',$user)}}"><i class="fa fa-refresh" aria-hidden="true"></i></a></button>
+                                    <button class="btn text-primary" type="submit"><a href="{{route('department/datails',$dept)}}"><i class="fa fa-refresh" aria-hidden="true"></i></a></button>
 
                                 </div>
                             </td>
@@ -57,7 +61,7 @@ use Carbon\Carbon;
                           @endforeach
                           
                         @endif
-                      </tbody> --}}
+                      </tbody>
                       <tfoot>
                       </tfoot>
                     </table>
@@ -68,7 +72,7 @@ use Carbon\Carbon;
           </div>
           <div class="row">
             <div class="col-12">
-              <a href="admins-create"> <button class="btn btn-primary rounded m-3">Create Admin</button></a>
+              <a href="Departments-create"> <button class="btn btn-primary rounded m-3">Add Department</button></a>
             </div>
           </div>
   </div>

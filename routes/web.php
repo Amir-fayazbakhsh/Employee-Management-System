@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\logoutController;
 use App\Http\Controllers\dashbordController;
 use App\Http\Controllers\Admins\adminsController;
 use App\Http\Controllers\systemManage\DepartmentController;
+use App\Http\Controllers\systemManage\SalaryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,7 +40,13 @@ Route::post('/update/{user}/admins',[adminsController::class,'update'])->name('u
 
 ////departments
 Route::get('/Departments',[DepartmentController::class,'index'])->name('departments/index');
+Route::view('/Departments-create','sys-mg.department.create');
+Route::post('/Departments',[DepartmentController::class,'create'])->name('create/departments');
+Route::delete('/department/{id}/delete',[DepartmentController::class,'delete'])->name('department/delete');
+Route::get('/department/{id}/update',[DepartmentController::class,'details'])->name('department/datails');
+Route::put('/department/{id}/update',[DepartmentController::class,'update'])->name('department/update');
 
+Route::get('/Salary',[SalaryController::class,'index'])->name('salary/index');
 
 
 

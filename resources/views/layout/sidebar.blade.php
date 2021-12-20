@@ -45,15 +45,15 @@ id="sidebar"
                 <span class="me-2"
                   ><i class="bi bi-speedometer2"></i
                 ></span>
-                <span>Department</span>
+                <span>Department Management</span>
               </a>
             </li>
             <li>
-              <a href="/" class="nav-link px-3">
+              <a href="{{route('salary/index')}}" class="nav-link px-3">
                 <span class="me-2"
                   ><i class="bi bi-speedometer2"></i
                 ></span>
-                <span>Create Employees</span>
+                <span>Salary Management</span>
               </a>
             </li>
           </ul>
